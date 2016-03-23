@@ -75,10 +75,30 @@
             <item>
              <widget class="QLineEdit" name="lineEdit_output"/>
             </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>选择</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item>
              <widget class="QPushButton" name="pushButton_2">
               <property name="text">
@@ -87,11 +107,17 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton">
-              <property name="text">
-               <string>选择</string>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -112,18 +138,6 @@
      </layout>
     </item>
    </layout>
-   <zorder>label_input</zorder>
-   <zorder>label_output</zorder>
-   <zorder>lineEdit_input</zorder>
-   <zorder>pushButton_input</zorder>
-   <zorder>textBrowser_input</zorder>
-   <zorder>label_size</zorder>
-   <zorder>lineEdit_size</zorder>
-   <zorder>lineEdit_output</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>textBrowser_output</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>progressBar_convert</zorder>
    <zorder></zorder>
    <zorder></zorder>
   </widget>

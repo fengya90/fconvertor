@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "vedioinfo.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,8 +23,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+
 private:
     Ui::MainWindow *ui;
+    VedioInfo vi;
 };
 
 #endif // MAINWINDOW_H

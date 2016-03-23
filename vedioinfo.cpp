@@ -8,7 +8,7 @@ VedioInfo::VedioInfo()
 }
 
 bool VedioInfo::Parse(QString file_path){
-    // parse the width and hight
+    file_path_ = file_path;
     QProcess process;
     QString argv = "-show_format -v error -of flat=s=_ -select_streams v:0 -show_entries stream=height,width";
     QStringList argvlist = argv.split(" ");

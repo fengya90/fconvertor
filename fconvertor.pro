@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     util.cpp \
-    vedioinfo.cpp
+    vedioinfo.cpp \
+    convertthread.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
-    vedioinfo.h
+    vedioinfo.h \
+    convertthread.h
 
 FORMS    += mainwindow.ui

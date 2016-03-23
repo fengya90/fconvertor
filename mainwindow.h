@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "vedioinfo.h"
+#include "convertthread.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void setALLEnabled(bool b);
 
 private slots:
     void on_pushButton_input_clicked();
@@ -23,10 +25,12 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void DoConvertFinished(int value);
 
 private:
     Ui::MainWindow *ui;
     VedioInfo vi;
+    ConvertThread thread_;
 };
 
 #endif // MAINWINDOW_H

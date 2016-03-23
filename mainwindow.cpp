@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "vedioinfo.h"
 #include <QFileDialog>
 #include <QDir>
 
@@ -10,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->progressBar_convert->hide();
+    QObject::connect(&thread_, &ConvertThread::ConvertFinished,
+                     this, &MainWindow::DoConvertFinished);
 }
 
 MainWindow::~MainWindow()
@@ -37,7 +38,11 @@ void MainWindow::on_pushButton_input_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-
+    thread_.set_input_file(vi.file_path());
+    thread_.set_output_file(ui->lineEdit_output->text());
+    thread_.set_size(ui->lineEdit_size->text());
+    thread_.start();
+    setALLEnabled(false);
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -56,5 +61,18 @@ void MainWindow::on_pushButton_clicked()
         QString outfile = filename+QDir::separator()+fi.baseName()+"_"+vi.RecommendSize()+"_out.mp4";
         ui->lineEdit_output->setText(outfile);
     }
+}
+
+void MainWindow::setALLEnabled(bool b){
+    ui->lineEdit_input->setEnabled(b);
+    ui->lineEdit_output->setEnabled(b);
+    ui->lineEdit_size->setEnabled(b);
+    ui->pushButton->setEnabled(b);
+    ui->pushButton_2->setEnabled(b);
+    ui->pushButton_input->setEnabled(b);
+}
+
+void MainWindow::DoConvertFinished(int value){
+    setALLEnabled(true);
 }
 

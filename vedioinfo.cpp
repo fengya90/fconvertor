@@ -55,6 +55,7 @@ bool VedioInfo::Parse(QString file_path){
 
 QString VedioInfo::ToQString(){
     QString content;
+    content.append("文件路径:\t"+file_path_+"\n");
     content.append("宽x高:\t");
     content.append(QString::number(width_));
     content.append('x');
@@ -81,6 +82,31 @@ QString VedioInfo::ToQString(){
         content.append(RecommendSize());
     }
     content.append("  (建议长宽等比例缩放为原视频的1/2或者1/3)");
+    return content;
+}
+
+QString VedioInfo::ToQStringPurge(){
+    QString content;
+    content.append("文件路径:\t"+file_path_+"\n");
+    content.append("宽x高:\t");
+    content.append(QString::number(width_));
+    content.append('x');
+    content.append(QString::number(height_));
+    content.append("\n");
+    content.append("时长:\t");
+    uint32_t duration = static_cast<uint64_t> (duration_);
+    uint32_t min = duration/60;
+    uint32_t sec = duration%60;
+    content.append(QString::number(min));
+    content.append(":");
+    content.append(QString::number(sec));
+    content.append("\n");
+    content.append("大小:\t");
+    content.append(QString::number(size_));
+    content.append("Bytes(");
+    content.append(Util::GetHumanReadable(size_));
+    content.append(")");
+    content.append("\n");
     return content;
 }
 

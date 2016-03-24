@@ -13,7 +13,8 @@ public:
     void set_output_file(const QString& v){output_file_ = v;}
     void set_size(const QString& v){size_ = v;}
 signals:
-    void ConvertFinished(int newValue);
+    void ConvertTime(int newValue);
+    void ConvertFinished();
 protected:
        void run();
 private:

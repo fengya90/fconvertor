@@ -10,8 +10,10 @@ public:
     VedioInfo();
     bool Parse(QString file_path);
     QString ToQString();
+    QString ToQStringPurge();
     QString RecommendSize();
     QString file_path(){return file_path_;}
+    double duration(){return duration_;}
 private:
     QString file_path_;
     uint32_t width_;

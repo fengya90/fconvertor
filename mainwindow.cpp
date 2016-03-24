@@ -9,8 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->progressBar_convert->hide();
+    ui->label_per->hide();
     QObject::connect(&thread_, &ConvertThread::ConvertFinished,
-                     this, &MainWindow::DoConvertFinished);
+                     this, &MainWindow::OnConvertFinished);
+    QObject::connect(&thread_, &ConvertThread::ConvertTime,
+                     this, &MainWindow::ConvertTime);
 }
 
 MainWindow::~MainWindow()
@@ -32,7 +35,11 @@ void MainWindow::on_pushButton_input_clicked()
         vi.Parse(filename);
         ui->lineEdit_input->setText(filename);
         ui->textBrowser_input->setText(vi.ToQString());
-        ui->lineEdit_size->setText(vi.RecommendSize());
+        ui->lineEdit_size->setText(vi.RecommendSize());                
+        QFileInfo fi;
+        fi = QFileInfo(filename);
+        QString outfile = fi.path()+QDir::separator()+fi.baseName()+"_"+vi.RecommendSize()+"_out.mp4";
+        ui->lineEdit_output->setText(outfile);
     }
 }
 
@@ -43,6 +50,12 @@ void MainWindow::on_pushButton_2_clicked()
     thread_.set_size(ui->lineEdit_size->text());
     thread_.start();
     setALLEnabled(false);
+    ui->progressBar_convert->setValue(0);
+    ui->progressBar_convert->show();
+    ui->progressBar_convert->setTextVisible(false);
+    ui->label_per->setText("0%");
+    ui->label_per->show();
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -72,7 +85,18 @@ void MainWindow::setALLEnabled(bool b){
     ui->pushButton_input->setEnabled(b);
 }
 
-void MainWindow::DoConvertFinished(int value){
-    setALLEnabled(true);
+void MainWindow::ConvertTime(int value){
+    int v = int(value*100/vi.duration());
+    ui->progressBar_convert->setValue(v);
+    ui->label_per->setText(QString::number(v)+"%");
+}
+
+void MainWindow::OnConvertFinished(){
+     ui->progressBar_convert->setValue(100);
+     ui->label_per->setText("100%");
+     setALLEnabled(true);
+     VedioInfo rvi;
+     rvi.Parse(ui->lineEdit_output->text());
+     ui->textBrowser_output->setText(rvi.ToQStringPurge());
 }
 

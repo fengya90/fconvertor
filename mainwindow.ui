@@ -14,8 +14,8 @@
    <string>fconvertor</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_5">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -43,7 +43,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -126,30 +126,34 @@
         <item>
          <widget class="QTextBrowser" name="textBrowser_output"/>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QProgressBar" name="progressBar_convert">
+            <property name="value">
+             <number>24</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_per">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressBar_convert">
-        <property name="value">
-         <number>24</number>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
    </layout>
    <zorder></zorder>
    <zorder></zorder>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>606</width>
-     <height>22</height>
-    </rect>
-   </property>
+   <zorder>label_per</zorder>
+   <zorder>progressBar_convert</zorder>
+   <zorder></zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -160,6 +164,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>606</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

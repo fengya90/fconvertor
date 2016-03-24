@@ -25,7 +25,8 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void DoConvertFinished(int value);
+    void ConvertTime(int newValue);
+    void OnConvertFinished();
 
 private:
     Ui::MainWindow *ui;

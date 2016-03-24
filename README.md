@@ -11,7 +11,7 @@ fengya90@gmail.com
 
 ## 下载
 
-二进制中已经包含了ffmpeg，来自 ffmpeg-79303-g0ffa9e6.7z。
+程序中已经包含了ffmpeg，来自 ffmpeg-79303-g0ffa9e6.7z。
 
 [mac os x dmg](http://pan.baidu.com/s/1miMpl1m)
 

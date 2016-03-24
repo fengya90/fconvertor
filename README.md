@@ -15,5 +15,12 @@ fengya90@gmail.com
 
 [mac os x dmg](http://pan.baidu.com/s/1miMpl1m)
 
+## 使用
+
+![p1](image/p1.png)
+![p2](image/p2.png)
+![p3](image/p3.png)
+![p4](image/p4.png)
+
 
 
